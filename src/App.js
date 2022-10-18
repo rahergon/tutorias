@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AlumnoAgregar from './pages/alumnos/AlumnoAgregar';
+import Alumnos from './pages/alumnos/Alumnos';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+import BarraSuperior from "./components/BarraSuperior";
+import AlumnoEliminar from './pages/alumnos/AlumnoEliminar';
+import AlumnoModificar from './pages/alumnos/AlumnoModificar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Routes>
+      <Route path="/" element={ <BarraSuperior /> }>
+        <Route index element={ <Home /> } />
+        <Route path="alumnos">
+          <Route index element={ <Alumnos /> } />
+          <Route path='agregar' element={ <AlumnoAgregar /> } />
+          <Route path='eliminar' element= { <AlumnoEliminar /> } />
+          <Route path='modificar' element= { <AlumnoModificar /> } />
+        </Route>
+      </Route>       
+      <Route path='*' element= { <NotFound /> } />
+     </Routes>
     </div>
   );
 }
