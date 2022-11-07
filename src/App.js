@@ -17,8 +17,8 @@ function App() {
         <Route path="alumnos">
           <Route index element={ <Alumnos /> } />
           <Route path='agregar' element={ <AlumnoAgregar /> } />
-          <Route path='eliminar' element= { <AlumnoEliminar /> } />
-          <Route path='modificar' element= { <AlumnoModificar /> } />
+          <Route path='eliminar/:m' element= { <AlumnoEliminar /> } />
+          <Route path='modificar/:m' element= { <AlumnoModificar /> } />
         </Route>
       </Route>       
       <Route path='*' element= { <NotFound /> } />
